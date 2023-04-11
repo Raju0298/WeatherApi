@@ -1,6 +1,0 @@
-onXuTHqBwJST0rPB2hIUbB7abJ3RmS8Rg1gxfh
-
-    "coverage": "react-scripts test --coverage -u --watchAll --transformIgnorePatterns 'node_modules/(?!my-library-dir)/' --collectCoverageFrom='src/MyRoutes.js' --collectCoverageFrom='src/Fbshow.js'"
-
-
-npm library - username = raju0298   password = Google@0298
