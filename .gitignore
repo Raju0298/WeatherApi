@@ -2,11 +2,19 @@
 
 # dependencies
 /node_modules
+/.cert
 /.pnp
 .pnp.js
 
+#SSL Files
+.ca.crt
+.ca.key
+.cert.crt
+.cert.key
+
 # testing
 /coverage
+/.env
 
 # production
 /build

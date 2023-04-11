@@ -1,0 +1,113 @@
+.log {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 1px solid red; 
+  }
+ 
+  
+.log .container-fluid{
+  height: 100vh;
+  width: 100%;
+  background-color: #3B5998;
+  margin: 0;
+  padding: 0;
+}
+
+/* .log svg{
+  margin-top: 10px;
+  cursor: pointer;
+} */
+
+.log svg:hover{
+  color: white
+}
+
+.log .fblogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 660px;
+    width: 100%;
+
+  }
+
+  .fbbtn{
+    background-color: #3B5998;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fbbtn:hover{
+    background-color: white;
+    color: black;
+  }
+  
+  /* .fspan{
+    display:grid;
+    align-self: center;
+  } */
+  
+
+  .fbinit .fbtn{
+    background-color: #3B5998;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 350px;
+  }
+
+  .fbinit .fbtn:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .fbscript .fbtn{
+    background-color: #3B5998;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 350px;
+  }
+
+  .fbscript .fbtn:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .fbscript .container-fluid{
+    background-color: #3B5998;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 100%;
+
+  }
+
+  .fbshow .container-fluid {
+    background-color: #3B5998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 800px;
+    width: 100%;
+  }
+
+  .fbshow img {
+    margin-top: 30px;
+  }
+

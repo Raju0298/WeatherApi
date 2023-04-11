@@ -1,0 +1,55 @@
+.home{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.home .container-fluid{
+    height: 100vh;
+    width: 100%;
+    background-color: #3B5998;
+    margin: 0;
+    padding: 0;
+}
+
+.home h4{
+    color: white;
+    margin-top: 20px;
+}
+
+.home hr{
+    width: 100%;
+    background-color: white;
+    border:0;
+    height: 2px;
+    opacity: initial;
+}
+
+.home .link{
+    margin-top: 250px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.home .link :hover{
+    color: black;
+}
+
+.home .span {
+    font-size: 200%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.home .footer {
+    width: 100%;
+    background-color: white;
+    border:0;
+    height: 2px;
+    opacity: initial;
+    margin-top: 350px;
+}

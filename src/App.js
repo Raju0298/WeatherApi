@@ -1,37 +1,83 @@
-import "./index.css";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+import { createContext } from "react";
+import { ResponseContext } from "./MyRoutes";
+import "./css/App.css";
 import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
 const App = () => {
   const [data, setData] = useState({});
   const [city, setCity] = useState("");
-  const apiid = "0279e93c8de9c5246af753f3d3d47595";
+  // const {data, setData} = useContext(ResponseContext)
+
+  const apiid = process.env.REACT_APP_APIID;
+
+  const navigate = useNavigate()
   const url1 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiid}&units=metric`;
+  // console.log(url1)
+
+
+  // const getLogin =() =>{
+  //   window.FB.getLoginStatus(function(response) {
+  //     // this will be called when the roundtrip to Facebook has completed
+  //     console.log("Logout status", response)
+  //     window.FB.logout(function(response) {
+  //     console.log("Lout",response)
+  //   });
+  const deleteAllCookies = () => {
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        console.log(cookie)
+    }
+   }
+
+
+    const getLogin = () => {
+      window.FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          window.FB.logout(function(response) {
+          console.log(response)
+          navigate("/")
+        })
+       }
+    })
+  }
 
 
   const getData = (event) => {
     if (event.key === "Enter") {
-      axios({
-        url: url1,
-        method: "get",
-      }).then((res) => {
-          toast.success("Success")
-          setTimeout(() => {
-            console.log(res.data);
-            setData(res.data);    
-          }, 60);      
-        },
-        (err) => {
-          if(err.response.status === 404){
-            toast.error("Please Check The City Name")  
+      try {
+        
+        axios({
+          url: url1,
+          method: "get",
+        }).then((res) => {
+            toast.success("Success")
+            setTimeout(() => {
+              // console.log(res.data);
+              setData(res.data);    
+            }, 60);      
+          },
+          (err) => {
+            if(err.response.status === 404){
+              toast.error("Please Check The City Name")  
+            }
+            console.log(err);
           }
-          // console.log(err);
-        }
-      );
+        );
+      } catch (error) {
+        console.log(error)
+      }
       setCity("");
     }
   };
@@ -49,7 +95,7 @@ const App = () => {
       <div className="container">
         <div className="top">
           <div className="city">
-            <p>{data.name} {data.sys ? <h6>[{data.sys.country}]</h6> : null}</p>
+            <p>{data.name} {data.sys ? <span>[{data.sys.country}]</span> : null}</p>
           </div>
           <div className="temp">
             {data.main ? <h1>{data.main.temp.toFixed()}°C</h1> : null}
@@ -73,15 +119,22 @@ const App = () => {
               {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} m/s</p> : null}
               <p>Wind Speed</p>
             </div>
+            
           </div>
+          
 
 
         }
+        <div className="d-flex flex-column" style={{"marginTop": "1rem"}}>
+            <button className="lbtn btn btn-primary" onClick={getLogin}>Logout</button>
+          </div>
 
 
       </div>
       <ToastContainer />
-    </div>
+
+      
+  </div>
   );
 };
 
